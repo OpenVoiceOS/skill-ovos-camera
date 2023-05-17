@@ -1,0 +1,76 @@
+{
+  "name": "Camera Skill",
+  "skillMetadata": {
+    "sections": [
+      {
+        "name": "video_source",
+        "fields": [
+          {
+            "type": "label",
+            "label": "video source for webcam, usually 0"
+          },
+          {
+            "name": "video_source",
+            "type": "number",
+            "label": "video_source",
+            "placeholder": "0",
+            "value": "0"
+          }
+        ]
+      },
+      {
+        "name": "camera_sound_path",
+        "fields": [
+          {
+            "type": "label",
+            "label": "path to wav or mp3 sound file to play on picture taken"
+          },
+          {
+            "name": "camera_sound_path",
+            "type": "text",
+            "label": "camera_sound_path",
+            "placeholder": "camera.wav",
+            "value": ""
+          },
+          {
+            "type": "checkbox",
+            "name": "play_sound",
+            "label": "play sound on taking picture",
+            "value": "true"
+          }
+        ]
+      },
+      {
+        "name": "mail_picture",
+        "fields": [
+          {
+            "type": "label",
+            "label": "want to email taken pictures? check the repository for additional instructions"
+          },
+          {
+            "type": "checkbox",
+            "name": "mail_picture",
+            "label": "mail_picture",
+            "value": "false"
+          }
+        ]
+      },
+      {
+        "name": "picture_path",
+        "fields": [
+          {
+            "type": "label",
+            "label": "where to save taken pictures"
+          },
+          {
+            "name": "picture_path",
+            "type": "text",
+            "label": "picture_path",
+            "placeholder": "~/Photos",
+            "value": "~/Photos"
+          }
+        ]
+      }
+    ]
+  }
+}
