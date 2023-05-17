@@ -2,6 +2,8 @@
 
 [shared camera](https://github.com/NeonGeckoCom/shared_camera) for OpenVoiceOS
 
+this skill is WIP! you most likely want to use https://github.com/OpenVoiceOS/skill-ovos-qml-camera instead   (depends on mycroft-gui)
+
 
 TODO
 
