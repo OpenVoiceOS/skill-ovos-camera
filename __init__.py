@@ -3,13 +3,27 @@ from os import makedirs
 from os.path import dirname, exists, expanduser, join
 
 import cv2
+from ovos_utils import classproperty
 from ovos_utils.log import LOG
+from ovos_utils.process_utils import RuntimeRequirements
 from ovos_workshop.decorators import intent_handler
 from ovos_workshop.skills import OVOSSkill
 from shared_camera import ZMQCamera
 
 
 class WebcamSkill(OVOSSkill):
+
+    @classproperty
+    def runtime_requirements(self):
+        return RuntimeRequirements(internet_before_load=False,
+                                   network_before_load=False,
+                                   gui_before_load=False,
+                                   requires_internet=False,
+                                   requires_network=False,
+                                   requires_gui=False,
+                                   no_internet_fallback=True,
+                                   no_network_fallback=True,
+                                   no_gui_fallback=True)
 
     def initialize(self):
         LOG.info("initializing videostream")
@@ -54,6 +68,5 @@ class WebcamSkill(OVOSSkill):
         self.bus.emit(message.reply("webcam.picture", {"path": path}))
 
     def shutdown(self):
-        self.camera.stop_stream()
-        self.camera.shutdown()
-        super(WebcamSkill, self).shutdown()
+        if self.camera:
+            self.camera.stop()
