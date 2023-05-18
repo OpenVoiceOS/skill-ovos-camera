@@ -1,1 +1,2 @@
 git+https://github.com/NeonGeckoCom/shared_camera
+ovos_workshop~=0.0, >=0.0.12a27
