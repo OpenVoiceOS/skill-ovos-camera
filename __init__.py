@@ -1,6 +1,4 @@
 import os.path
-import platform
-import subprocess
 import time
 from os.path import dirname, exists, join
 
@@ -13,11 +11,6 @@ from ovos_utils.process_utils import RuntimeRequirements
 
 from ovos_workshop.decorators import intent_handler
 from ovos_workshop.skills import OVOSSkill
-
-try:
-    from picamera2 import Picamera2
-except ImportError:
-    Picamera2 = None
 
 
 class WebcamSkill(OVOSSkill):
@@ -43,32 +36,20 @@ class WebcamSkill(OVOSSkill):
         self.camera_type = self.detect_camera_type()
 
     @staticmethod
-    def detect_camera_type():
+    def detect_camera_type() -> str:
         """Detect if running on Raspberry Pi with libcamera or desktop."""
-        if platform.system() == "Linux":
-            # Check if running on Raspberry Pi
-            if "Raspberry Pi" in platform.uname().machine:
-                # Check if libcamera is available
-                try:
-                    result = subprocess.run(["which", "libcamera-still"],
-                                            stdout=subprocess.PIPE,
-                                            stderr=subprocess.PIPE,
-                                            check=True)
-                    if result.stdout:
-                        return "libcamera"
-                except subprocess.CalledProcessError:
-                    LOG.warning("libcamera not found, falling back to OpenCV")
-            return "opencv"
-        else:
+        try:
+            # only works in rpi
+            import libcamera
+            return "libcamera"
+        except:
             return "opencv"
 
     def open_camera(self):
         """Open camera based on detected type."""
         if self.camera_type == "libcamera":
-            if Picamera2 is None:
-                LOG.error("Picamera2 library is not installed")
-                return None
             try:
+                from picamera2 import Picamera2
                 self._camera = Picamera2()
                 self._camera.start()
                 LOG.info("libcamera initialized")
