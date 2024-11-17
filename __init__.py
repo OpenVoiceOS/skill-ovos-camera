@@ -57,7 +57,10 @@ class Camera:
 
     def get_frame(self) -> np.ndarray:
         if self.camera_type == "libcamera":
-            return self._camera.capture_array()
+            frame = self._camera.capture_array()  # In RGB format
+            # Convert RGB to BGR for OpenCV compatibility
+            frame = cv2.cvtColor(frame, cv2.COLOR_RGB2BGR)
+            return frame
         else:
             return self._camera.get()
 
