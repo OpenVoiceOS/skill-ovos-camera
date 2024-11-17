@@ -1,0 +1,9 @@
+{
+    "camera_error.dialog": [
+        "I couldn't access the camera."
+    ],
+    "picture.dialog": [
+        "picture taken",
+        "i like taking pictures"
+    ]
+}

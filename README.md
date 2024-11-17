@@ -1,42 +1,35 @@
-## Camera skill
+# Camera Skill
 
-[shared camera](https://github.com/NeonGeckoCom/shared_camera) for OpenVoiceOS
-
-this skill is WIP! you most likely want to use https://github.com/OpenVoiceOS/skill-ovos-qml-camera instead   (depends on mycroft-gui)
-
-
-TODO
-
-- PHAL plugin for the actual shared camera implementation
-- skill becomes a VUI + UI specifically for taking pictures
-- new ovos_workshop skill class for VisionSkill, exposing a live feed (numpy array) property
+Camera skill for OpenVoiceOS
 
 ## Description
 
-take pictures, share a camera stream across OpenVoiceOS
-
-- local
-- zmq
-- redis
+This skill allows you to take pictures using a connected webcam. You can configure various settings to customize its behavior.
 
 ## Examples
 
-* "take a picture"
+* "Take a picture"
 
+## Settings
 
-## Using webcam in other skills
+The `settings.json` file allows you to configure the behavior of the Camera Skill. Below are the available settings:
 
-if you want to get a file path for the latest picture you can use the
-messagebus to get a file path
+| Setting Name         | Type     | Default       | Description                                                                 |
+|----------------------|----------|---------------|-----------------------------------------------------------------------------|
+| `video_source`       | Integer  | `0`           | Specifies the camera to use. `0` is the default system webcam.             |
+| `play_sound`         | Boolean  | `true`        | Whether to play a sound when a picture is taken.                           |
+| `camera_sound_path`  | String   | `camera.wav`  | Path to the sound file to play when taking a picture.                      |
+| `pictures_folder`    | String   | `~/Pictures`  | Directory where pictures are saved.                                        |
+| `keep_camera_open`   | Boolean  | `false`       | Whether to keep the camera stream open after taking a picture.             |
 
+### Example `settings.json`
 
-    def initialize(self):
-        self.add_event("webcam.picture", self.get_the_feed)
-        self.bus.emit(Message("webcam.request"))
-
-
-    def get_the_feed(self, message):
-        file_path = message.data.get("path")
-
-
-
+```json
+{
+  "video_source": 0,
+  "play_sound": true,
+  "camera_sound_path": "/path/to/camera.wav",
+  "pictures_folder": "/home/user/Pictures",
+  "keep_camera_open": false
+}
+```
