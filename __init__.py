@@ -1,4 +1,5 @@
 import os.path
+import random
 import time
 from os.path import dirname, exists, join
 
@@ -69,6 +70,16 @@ class Camera:
                 self._camera.stop()
             self._camera = None
 
+    def __enter__(self):
+        """Enter the context and open the camera."""
+        if self.open() is None:
+            raise RuntimeError("Failed to open the camera")
+        return self
+
+    def __exit__(self, exc_type, exc_value, traceback):
+        """Exit the context and close the camera."""
+        self.close()
+
 
 class WebcamSkill(OVOSSkill):
 
@@ -106,30 +117,28 @@ class WebcamSkill(OVOSSkill):
 
     @intent_handler("take_picture.intent")
     def handle_take_picture(self, message):
-        cam = self.camera.open()
-        if cam is None:
+        try:
+            with self.camera as cam:
+                self.speak("get_ready", wait=True)
+                # need time to Allow sensor to stabilize
+                self.gui.show_text("3")
+                self.speak("3", wait=True)
+                self.gui.show_text("2")
+                self.speak("2", wait=True)
+                self.gui.show_text("1")
+                self.speak("1", wait=True)
+                self.play_camera_sound()
+                self.gui.clear()
+                frame = self.camera.get_frame()
+                pic_path = join(self.pictures_folder, time.strftime("%Y-%m-%d_%H-%M-%S") + ".jpg")
+                cv2.imwrite(pic_path, frame)
+                self.gui.show_image(pic_path)
+                if random.choice([True, False]):
+                    self.speak_dialog("picture")
+        except RuntimeError as e:
+            LOG.error(e)
             self.speak_dialog("camera_error")
-            return
-        self.speak("get_ready", wait=True)
-        # need time to Allow sensor to stabilize
-        self.gui.show_text("3")
-        self.speak("3", wait=True)
-        time.sleep(0.2)
-        self.gui.show_text("2")
-        self.speak("2", wait=True)
-        time.sleep(0.2)
-        self.gui.show_text("1")
-        self.speak("1", wait=True)
-        self.gui.show_text("0")
-        time.sleep(0.2)
-        self.play_camera_sound()
-        self.gui.clear()
-        frame = self.camera.get_frame()
-        pic_path = join(self.pictures_folder, time.strftime("%Y-%m-%d_%H-%M-%S") + ".jpg")
-        cv2.imwrite(pic_path, frame)
-        self.gui.show_image(pic_path)
-        self.speak_dialog("picture")
-        self.camera.close()
 
     def shutdown(self):
+        # just in case
         self.camera.close()
