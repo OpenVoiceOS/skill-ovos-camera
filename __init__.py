@@ -110,6 +110,8 @@ class WebcamSkill(OVOSSkill):
         if cam is None:
             self.speak_dialog("camera_error")
             return
+        self.speak("get_ready", wait=True)
+        time.sleep(0.2)  # need time to Allow sensor to stabilize
         self.play_camera_sound()
         frame = self.camera.get_frame()
         pic_path = join(self.pictures_folder, time.strftime("%Y-%m-%d_%H-%M-%S") + ".jpg")
