@@ -111,7 +111,13 @@ class WebcamSkill(OVOSSkill):
             self.speak_dialog("camera_error")
             return
         self.speak("get_ready", wait=True)
-        time.sleep(0.2)  # need time to Allow sensor to stabilize
+        # need time to Allow sensor to stabilize
+        self.speak("3", wait=True)
+        time.sleep(0.2)
+        self.speak("2", wait=True)
+        time.sleep(0.2)
+        self.speak("1", wait=True)
+        time.sleep(0.2)
         self.play_camera_sound()
         frame = self.camera.get_frame()
         pic_path = join(self.pictures_folder, time.strftime("%Y-%m-%d_%H-%M-%S") + ".jpg")
