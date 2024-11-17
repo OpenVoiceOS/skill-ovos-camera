@@ -119,7 +119,7 @@ class WebcamSkill(OVOSSkill):
     def handle_take_picture(self, message):
         try:
             with self.camera as cam:
-                self.speak("get_ready", wait=True)
+                self.speak_dialog("get_ready", wait=True)
                 # need time to Allow sensor to stabilize
                 self.gui.show_text("3")
                 self.speak("3", wait=True)
