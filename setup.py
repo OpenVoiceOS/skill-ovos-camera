@@ -18,7 +18,7 @@ PLUGIN_ENTRY_POINT = f'{SKILL_NAME.lower()}.{SKILL_AUTHOR.lower()}={SKILL_PKG}:{
 def find_resource_files():
     resource_base_dirs = ("locale",)
     base_dir = path.dirname(__file__)
-    package_data = ["*.json"]
+    package_data = ["*.json", "*.wav"]
     for res in resource_base_dirs:
         if path.isdir(path.join(base_dir, res)):
             for (directory, _, files) in walk(path.join(base_dir, res)):

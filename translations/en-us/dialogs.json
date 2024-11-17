@@ -2,6 +2,7 @@
     "camera_error.dialog": [
         "I couldn't access the camera."
     ],
+    "get_ready.dialog": ["say cheese"],
     "picture.dialog": [
         "picture taken",
         "i like taking pictures"
