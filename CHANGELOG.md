@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.0.3a1](https://github.com/OpenVoiceOS/ovos-skill-camera/tree/0.0.3a1) (2024-11-17)
+
+[Full Changelog](https://github.com/OpenVoiceOS/ovos-skill-camera/compare/0.0.2a1...0.0.3a1)
+
+**Merged pull requests:**
+
+- fix: BGR [\#3](https://github.com/OpenVoiceOS/ovos-skill-camera/pull/3) ([JarbasAl](https://github.com/JarbasAl))
+
 ## [0.0.2a1](https://github.com/OpenVoiceOS/ovos-skill-camera/tree/0.0.2a1) (2024-11-17)
 
 [Full Changelog](https://github.com/OpenVoiceOS/ovos-skill-camera/compare/68f3b2a6bc076c5d06e06f8555dc0d0777b2b917...0.0.2a1)
