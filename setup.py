@@ -1,7 +1,9 @@
 #!/usr/bin/env python3
 import os
+from os import path, walk, environ
+from os.path import abspath, dirname, join, isfile
+
 from setuptools import setup
-from os import walk, path
 
 URL = "https://github.com/OpenVoiceOS/ovos-skill-camera"
 SKILL_CLAZZ = "WebcamSkill"  # needs to match __init__.py class name
@@ -11,7 +13,6 @@ PYPI_NAME = "ovos-skill-camera"  # pip install PYPI_NAME
 SKILL_AUTHOR, SKILL_NAME = URL.split(".com/")[-1].split("/")
 SKILL_PKG = SKILL_NAME.lower().replace('-', '_')
 PLUGIN_ENTRY_POINT = f'{SKILL_NAME.lower()}.{SKILL_AUTHOR.lower()}={SKILL_PKG}:{SKILL_CLAZZ}'
-# skill_id=package_name:SkillClass
 
 
 def find_resource_files():
@@ -56,6 +57,21 @@ def get_version():
     return version
 
 
+def get_requirements(requirements_filename: str = "requirements.txt"):
+    requirements_file = join(abspath(dirname(__file__)), requirements_filename)
+    if isfile(requirements_file):
+        with open(requirements_file, 'r', encoding='utf-8') as r:
+            requirements = r.readlines()
+        requirements = [r.strip() for r in requirements
+                        if r.strip() and not r.strip().startswith("#")]
+        if 'MYCROFT_LOOSE_REQUIREMENTS' in environ:
+            print('USING LOOSE REQUIREMENTS!')
+            requirements = [r.replace('==', '>=').replace('~=', '>=')
+                            for r in requirements]
+        return requirements
+    return []
+
+
 setup(
     name=PYPI_NAME,
     version=get_version(),
@@ -70,6 +86,7 @@ setup(
     package_data={SKILL_PKG: find_resource_files()},
     packages=[SKILL_PKG],
     include_package_data=True,
+    install_requires=get_requirements("requirements.txt"),
     keywords='ovos skill plugin',
     entry_points={'ovos.plugin.skill': PLUGIN_ENTRY_POINT}
 )
