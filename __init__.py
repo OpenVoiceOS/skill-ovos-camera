@@ -76,6 +76,7 @@ class WebcamSkill(OVOSSkill):
         frame = cam.get().copy()
         pic_path = join(self.pictures_folder, time.strftime("%Y-%m-%d_%H-%M-%S") + ".jpg")
         cv2.imwrite(pic_path, frame)
+        self.gui.show_image(pic_path)
         self.speak_dialog("picture")
         if not self.settings.get("keep_camera_open"):
             self.close_camera()
