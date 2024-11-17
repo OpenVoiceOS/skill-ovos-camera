@@ -20,7 +20,6 @@ The `settings.json` file allows you to configure the behavior of the Camera Skil
 | `play_sound`         | Boolean  | `true`        | Whether to play a sound when a picture is taken.                           |
 | `camera_sound_path`  | String   | `camera.wav`  | Path to the sound file to play when taking a picture.                      |
 | `pictures_folder`    | String   | `~/Pictures`  | Directory where pictures are saved.                                        |
-| `keep_camera_open`   | Boolean  | `false`       | Whether to keep the camera stream open after taking a picture.             |
 
 ### Example `settings.json`
 
@@ -39,19 +38,20 @@ The `settings.json` file allows you to configure the behavior of the Camera Skil
 
 If you plan to use this skill on a Raspberry Pi, it requires access to the `libcamera` package for the Picamera2 library to function correctly. Due to how `libcamera` is installed on the Raspberry Pi (system-wide), additional steps are necessary to ensure compatibility when using a Python virtual environment (venv).
 
+In these examples we use the default .venv location from ovos-installer, `~/.venvs/ovos`, adjust as needed
+
 #### **Steps to Enable `libcamera` in Your Virtual Environment**
 
 1. **Install Required System Packages**  
    Before proceeding, ensure that `libcamera` and its dependencies are installed on your Raspberry Pi. Run the following commands:  
    ```bash
-   sudo apt update
-   sudo apt install libcamera-apps python3-picamera2
+   sudo apt install -y python3-libcamera python3-kms++ libcap-dev
    ```
 
 2. **Modify the Virtual Environment Configuration**  
    If you already have a virtual environment set up, enable access to system-wide packages by modifying the `pyvenv.cfg` file in the virtual environment directory:  
    ```bash
-   nano /path/to/your/venv/pyvenv.cfg
+   nano ~/.venvs/ovos/pyvenv.cfg
    ```
 
    Add or update the following line:  
@@ -64,7 +64,7 @@ If you plan to use this skill on a Raspberry Pi, it requires access to the `libc
 3. **Verify Access to `libcamera`**  
    Activate your virtual environment:  
    ```bash
-   source /path/to/your/venv/bin/activate
+   source ~/.venvs/ovos/bin/activate
    ```
 
    Check if the `libcamera` package is accessible:  
