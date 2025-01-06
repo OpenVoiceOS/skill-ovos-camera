@@ -74,17 +74,17 @@ class WebcamSkill(OVOSSkill):
         if not self.sess_has_camera(message):
             self.speak_dialog("camera_error")
             return
-        # ensure the sensor have time to warm up etc if needed
-        self.bus.emit(message.forward("ovos.phal.camera.open"))
 
         self.speak_dialog("get_ready", wait=True)
-        # need time to Allow sensor to stabilize
-        self.gui.show_text("3")
-        self.speak("3", wait=True)
-        self.gui.show_text("2")
-        self.speak("2", wait=True)
-        self.gui.show_text("1")
-        self.speak("1", wait=True)
+
+        if self.settings.get("countdown"):
+            # need time to Allow sensor to stabilize
+            self.gui.show_text("3")
+            self.speak("3", wait=True)
+            self.gui.show_text("2")
+            self.speak("2", wait=True)
+            self.gui.show_text("1")
+            self.speak("1", wait=True)
 
         pic_path = join(self.pictures_folder, time.strftime("%Y-%m-%d_%H-%M-%S") + ".jpg")
         self.bus.emit(message.forward("ovos.phal.camera.get", {"path": pic_path}))
