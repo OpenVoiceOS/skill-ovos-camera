@@ -37,7 +37,7 @@ class WebcamSkill(OVOSSkill):
 
     @property
     def pictures_folder(self) -> str:
-        folder = os.path.expanduser(self.settings.get("pictures_folder", "~/Pictures"))
+        folder = self.settings.get("pictures_folder", "~/Pictures")
         os.makedirs(folder, exist_ok=True)
         return folder
 
