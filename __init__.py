@@ -8,6 +8,7 @@ from ovos_utils import classproperty
 from ovos_utils.process_utils import RuntimeRequirements
 from ovos_workshop.decorators import intent_handler
 from ovos_workshop.skills import OVOSSkill
+from ovos_utils.log import LOG
 
 
 class WebcamSkill(OVOSSkill):
@@ -33,6 +34,7 @@ class WebcamSkill(OVOSSkill):
 
     def handle_pong(self, message: Message):
         sess = SessionManager.get(message)
+        LOG.info(f"Camera available for session: {sess.session_id}")
         self.sess2cam[sess.session_id] = True
 
     @property
@@ -51,10 +53,11 @@ class WebcamSkill(OVOSSkill):
     def sess_has_camera(self, message) -> bool:
         sess = SessionManager.get(message)
         # check if this session has the camera PHAL plugin installed
-        has_camera = (self.sess2cam.get(sess.session_id) or
+        has_camera = (self.sess2cam.get(sess.session_id) is not None or
                       self.bus.wait_for_response(message.forward("ovos.phal.camera.ping"),
                                                 "ovos.phal.camera.pong",
                                                 timeout=0.5))
+        LOG.debug(f"has camera: {has_camera}")
         if has_camera and sess.session_id not in self.sess2cam:
             self.sess2cam[sess.session_id] = True
         return has_camera
@@ -62,9 +65,9 @@ class WebcamSkill(OVOSSkill):
     @intent_handler("have_camera.intent")
     def handle_camera_check(self, message):
         if self.sess_has_camera(message):
-            self.speak_dialog("camera_error")
-        else:
             self.speak_dialog("camera_yes")
+        else:
+            self.speak_dialog("camera_error")
 
     @intent_handler("take_picture.intent")
     def handle_take_picture(self, message):
