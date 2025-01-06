@@ -1,10 +1,17 @@
 {
     "camera_error.dialog": [
-        "I couldn't access the camera."
+        "I can't access the camera."
     ],
-    "get_ready.dialog": ["say cheese"],
+    "camera_yes.dialog": [
+        "My camera is ready to use.",
+        "The camera is functioning correctly.",
+        "Yes, a camera is available."
+    ],
+    "get_ready.dialog": [
+        "say cheese"
+    ],
     "picture.dialog": [
-        "picture taken",
-        "i like taking pictures"
+        "i like taking pictures",
+        "picture taken"
     ]
 }
