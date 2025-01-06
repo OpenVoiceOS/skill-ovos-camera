@@ -39,9 +39,7 @@ class WebcamSkill(OVOSSkill):
 
     @property
     def pictures_folder(self) -> str:
-        folder = self.settings.get("pictures_folder", "~/Pictures")
-        os.makedirs(folder, exist_ok=True)
-        return folder
+        return self.settings.get("pictures_folder", "~/Pictures")
 
     def play_camera_sound(self):
         if self.settings["play_sound"]:
