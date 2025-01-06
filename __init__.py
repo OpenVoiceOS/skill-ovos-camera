@@ -92,6 +92,6 @@ class WebcamSkill(OVOSSkill):
         self.play_camera_sound()
 
         self.gui.clear()
-        self.gui.show_image(pic_path)
+        self.gui.show_image(os.path.expanduser(pic_path))
         if random.choice([True, False]):
             self.speak_dialog("picture")
