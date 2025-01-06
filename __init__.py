@@ -71,6 +71,8 @@ class WebcamSkill(OVOSSkill):
         if not self.sess_has_camera(message):
             self.speak_dialog("camera_error")
             return
+        # ensure the sensor have time to warm up etc if needed
+        self.bus.emit(message.forward("ovos.phal.camera.open"))
 
         self.speak_dialog("get_ready", wait=True)
         # need time to Allow sensor to stabilize
