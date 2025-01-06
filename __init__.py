@@ -48,18 +48,27 @@ class WebcamSkill(OVOSSkill):
             if exists(s):
                 self.play_audio(s, instant=True)
 
+    def sess_has_camera(self, message) -> bool:
+        sess = SessionManager.get(message)
+        # check if this session has the camera PHAL plugin installed
+        has_camera = (self.sess2cam.get(sess.session_id) or
+                      self.bus.wait_for_response(message.forward("ovos.phal.camera.ping"),
+                                                "ovos.phal.camera.pong",
+                                                timeout=0.5))
+        if has_camera and sess.session_id not in self.sess2cam:
+            self.sess2cam[sess.session_id] = True
+        return has_camera
+
     @intent_handler("have_camera.intent")
     def handle_camera_check(self, message):
-        sess = SessionManager.get(message)
-        if not self.sess2cam.get(sess.session_id):
+        if self.sess_has_camera(message):
             self.speak_dialog("camera_error")
         else:
             self.speak_dialog("camera_yes")
 
     @intent_handler("take_picture.intent")
     def handle_take_picture(self, message):
-        sess = SessionManager.get(message)
-        if not self.sess2cam.get(sess.session_id):
+        if not self.sess_has_camera(message):
             self.speak_dialog("camera_error")
             return
 
