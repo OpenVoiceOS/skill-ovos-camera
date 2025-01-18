@@ -1,0 +1,14 @@
+{
+  "have_camera.intent": [
+    "kan jeg bruge kameraet",
+    "kan du få adgang til kameraet",
+    "har du et kamera",
+    "er et kamera tilgængeligt",
+    "virker kameraet",
+    "er der et kamera"
+  ],
+  "take_picture.intent": [
+    "tag et foto",
+    "tag et billede"
+  ]
+}
