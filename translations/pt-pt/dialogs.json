@@ -1,0 +1,17 @@
+{
+  "camera_error.dialog": [
+    "Não consigo aceder a câmara"
+  ],
+  "camera_yes.dialog": [
+    "A câmara está pronta para uso.",
+    "A câmara está funcionando corretamente.",
+    "Sim, uma câmara está disponível."
+  ],
+  "get_ready.dialog": [
+    "diz queijo"
+  ],
+  "picture.dialog": [
+    null,
+    null
+  ]
+}
