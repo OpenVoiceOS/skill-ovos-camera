@@ -8,7 +8,7 @@
     "er der et kamera"
   ],
   "take_picture.intent": [
-    null,
-    null
+    "tag et foto",
+    "tag et billede"
   ]
 }
