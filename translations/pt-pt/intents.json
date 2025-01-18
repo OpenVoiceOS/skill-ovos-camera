@@ -8,7 +8,7 @@
     "tem uma câmara"
   ],
   "take_picture.intent": [
-    null,
+    "tire uma foto",
     "tira uma foto"
   ]
 }
