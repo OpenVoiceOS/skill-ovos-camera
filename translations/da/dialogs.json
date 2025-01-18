@@ -1,0 +1,17 @@
+{
+  "camera_error.dialog": [
+    "Jeg kan ikke få adgang til kameraet."
+  ],
+  "camera_yes.dialog": [
+    "Mit kamera er klar til brug.",
+    "Kameraet fungerer korrekt.",
+    "Ja, et kamera er tilgængeligt."
+  ],
+  "get_ready.dialog": [
+    "sig appelsin"
+  ],
+  "picture.dialog": [
+    "jeg kan godt lide at tage billeder",
+    "billede er taget"
+  ]
+}
