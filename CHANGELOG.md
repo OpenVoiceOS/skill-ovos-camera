@@ -1,20 +1,16 @@
 # Changelog
 
-## [1.0.0a1](https://github.com/OpenVoiceOS/ovos-skill-camera/tree/1.0.0a1) (2025-01-06)
+## [1.0.1a1](https://github.com/OpenVoiceOS/ovos-skill-camera/tree/1.0.1a1) (2025-01-18)
 
-[Full Changelog](https://github.com/OpenVoiceOS/ovos-skill-camera/compare/V0.0.4...1.0.0a1)
+[Full Changelog](https://github.com/OpenVoiceOS/ovos-skill-camera/compare/V1.0.0...1.0.1a1)
 
-**Breaking changes:**
+**Merged pull requests:**
 
-- refactor!:adopt PHAL plugin [\#8](https://github.com/OpenVoiceOS/ovos-skill-camera/pull/8) ([JarbasAl](https://github.com/JarbasAl))
+- pt-pt/translate [\#10](https://github.com/OpenVoiceOS/ovos-skill-camera/pull/10) ([gitlocalize-app[bot]](https://github.com/apps/gitlocalize-app))
 
-**Closed issues:**
+## [V1.0.0](https://github.com/OpenVoiceOS/ovos-skill-camera/tree/V1.0.0) (2025-01-06)
 
-- refuse to load if camera unavailable [\#5](https://github.com/OpenVoiceOS/ovos-skill-camera/issues/5)
-
-## [V0.0.4](https://github.com/OpenVoiceOS/ovos-skill-camera/tree/V0.0.4) (2024-12-26)
-
-[Full Changelog](https://github.com/OpenVoiceOS/ovos-skill-camera/compare/0.0.4...V0.0.4)
+[Full Changelog](https://github.com/OpenVoiceOS/ovos-skill-camera/compare/1.0.0...V1.0.0)
 
 
 
