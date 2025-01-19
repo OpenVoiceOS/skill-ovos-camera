@@ -1,0 +1,14 @@
+{
+  "have_camera.intent": [
+    "Puc usar la càmera?",
+    "Pots accedir a la càmera?",
+    "tens càmera?",
+    "hi ha una càmera disponible?",
+    "està funcionant la càmera?",
+    "hi ha càmera?"
+  ],
+  "take_picture.intent": [
+    "fes una foto",
+    "tira una foto"
+  ]
+}
