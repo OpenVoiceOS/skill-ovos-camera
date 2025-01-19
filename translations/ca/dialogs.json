@@ -1,0 +1,17 @@
+{
+  "camera_error.dialog": [
+    "No puc accedir a la càmera."
+  ],
+  "camera_yes.dialog": [
+    "La càmera està preparada.",
+    "La càmera funciona correctament.",
+    "Sí, hi ha una càmera disponible."
+  ],
+  "get_ready.dialog": [
+    "digueu Lluííís"
+  ],
+  "picture.dialog": [
+    "M'agrada fer fotos",
+    "foto presa"
+  ]
+}
