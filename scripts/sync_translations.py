@@ -22,6 +22,7 @@ for lang in os.listdir(tx):
             if samples:
                 samples = [s.strip() for s in samples
                            if s and s.strip() != "[UNUSED]"]  # s may be None
+                os.makedirs(f"{locale}/{lang.lower()}", exist_ok=True)
                 with open(f"{locale}/{lang.lower()}/{fid}", "w") as f:
                     f.write("\n".join(sorted(samples)))
 
