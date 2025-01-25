@@ -1,30 +1,16 @@
 # Changelog
 
-## [1.0.3a4](https://github.com/OpenVoiceOS/ovos-skill-camera/tree/1.0.3a4) (2025-01-19)
+## [1.0.5a1](https://github.com/OpenVoiceOS/ovos-skill-camera/tree/1.0.5a1) (2025-01-25)
 
-[Full Changelog](https://github.com/OpenVoiceOS/ovos-skill-camera/compare/1.0.3a1...1.0.3a4)
-
-**Merged pull requests:**
-
-- fr/fr missing translation [\#18](https://github.com/OpenVoiceOS/ovos-skill-camera/pull/18) ([gitlocalize-app[bot]](https://github.com/apps/gitlocalize-app))
-- fr/fr missing translation [\#17](https://github.com/OpenVoiceOS/ovos-skill-camera/pull/17) ([gitlocalize-app[bot]](https://github.com/apps/gitlocalize-app))
-
-## [1.0.3a1](https://github.com/OpenVoiceOS/ovos-skill-camera/tree/1.0.3a1) (2025-01-19)
-
-[Full Changelog](https://github.com/OpenVoiceOS/ovos-skill-camera/compare/1.0.3a2...1.0.3a1)
-
-## [1.0.3a2](https://github.com/OpenVoiceOS/ovos-skill-camera/tree/1.0.3a2) (2025-01-19)
-
-[Full Changelog](https://github.com/OpenVoiceOS/ovos-skill-camera/compare/V1.0.2...1.0.3a2)
+[Full Changelog](https://github.com/OpenVoiceOS/ovos-skill-camera/compare/V1.0.4...1.0.5a1)
 
 **Merged pull requests:**
 
-- Add Catalan strings [\#15](https://github.com/OpenVoiceOS/ovos-skill-camera/pull/15) ([gitlocalize-app[bot]](https://github.com/apps/gitlocalize-app))
-- Add Catalan strings [\#14](https://github.com/OpenVoiceOS/ovos-skill-camera/pull/14) ([gitlocalize-app[bot]](https://github.com/apps/gitlocalize-app))
+- fix automations [\#20](https://github.com/OpenVoiceOS/ovos-skill-camera/pull/20) ([JarbasAl](https://github.com/JarbasAl))
 
-## [V1.0.2](https://github.com/OpenVoiceOS/ovos-skill-camera/tree/V1.0.2) (2025-01-18)
+## [V1.0.4](https://github.com/OpenVoiceOS/ovos-skill-camera/tree/V1.0.4) (2025-01-24)
 
-[Full Changelog](https://github.com/OpenVoiceOS/ovos-skill-camera/compare/1.0.2...V1.0.2)
+[Full Changelog](https://github.com/OpenVoiceOS/ovos-skill-camera/compare/1.0.4...V1.0.4)
 
 
 
