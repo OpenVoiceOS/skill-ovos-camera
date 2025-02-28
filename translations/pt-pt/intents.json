@@ -1,14 +1,14 @@
 {
-  "have_camera.intent": [
-    "posso usar a câmara",
-    "você pode aceder a câmara",
-    "(tems|você tem) uma câmara",
-    "tem uma câmara disponível",
-    "a câmara está (a funcionar|funcionando)",
-    "tem uma câmara"
-  ],
-  "take_picture.intent": [
-    "tire uma foto",
-    "tira uma foto"
-  ]
+    "take_picture.intent": [
+        "tira uma foto",
+        "tire uma foto"
+    ],
+    "have_camera.intent": [
+        "(tems|você tem) uma câmara",
+        "a câmara está (a funcionar|funcionando)",
+        "posso usar a câmara",
+        "tem uma câmara",
+        "tem uma câmara disponível",
+        "você pode aceder a câmara"
+    ]
 }

@@ -1,14 +1,14 @@
 {
-  "have_camera.intent": [
-    "kan jeg bruge kameraet",
-    "kan du få adgang til kameraet",
-    "har du et kamera",
-    "er et kamera tilgængeligt",
-    "virker kameraet",
-    "er der et kamera"
-  ],
-  "take_picture.intent": [
-    "tag et foto",
-    "tag et billede"
-  ]
+    "take_picture.intent": [
+        "tag et billede",
+        "tag et foto"
+    ],
+    "have_camera.intent": [
+        "er der et kamera",
+        "er et kamera tilgængeligt",
+        "har du et kamera",
+        "kan du få adgang til kameraet",
+        "kan jeg bruge kameraet",
+        "virker kameraet"
+    ]
 }

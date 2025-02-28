@@ -1,4 +1,8 @@
 {
+    "take_picture.intent": [
+        "take a photo",
+        "take a picture"
+    ],
     "have_camera.intent": [
         "can I use the camera",
         "can you access the camera",
@@ -6,9 +10,5 @@
         "is a camera available",
         "is the camera working",
         "is there a camera"
-    ],
-    "take_picture.intent": [
-        "take a photo",
-        "take a picture"
     ]
 }
